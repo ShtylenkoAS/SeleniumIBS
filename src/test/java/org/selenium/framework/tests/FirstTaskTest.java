@@ -1,9 +1,6 @@
-package org.selenium.test;
+package org.selenium.framework.tests;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -21,7 +18,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
 
-public class TestFirstTask {
+public class FirstTaskTest {
 
     private final String URL = "http://training.appline.ru/user/login";
     private String login;
@@ -48,7 +45,7 @@ public class TestFirstTask {
             System.err.println("ERROR: property file does not exists");
         }
 
-        System.setProperty("webdriver.chrome.driver", properties.getProperty("webdriver.chrome.driver"));
+        System.setProperty("webdriver.chrome.driver", properties.getProperty("chrome.driver.path"));
         webDriver.manage().window().maximize();
         webDriver.get(URL);
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -56,6 +53,7 @@ public class TestFirstTask {
     }
 
     @Test
+    @DisplayName("Тест практического задания №1")
     public void test() {
 //        Step 1: Перейти на страницу http://training.appline.ru/user/login Пройти авторизацию
         wait.until(ExpectedConditions.visibilityOf(webDriver.findElement(By.xpath("//form[@id='login-form']"))));
@@ -183,7 +181,7 @@ public class TestFirstTask {
 
         Assertions.assertEquals("Россия, Смоленск", webDriver.findElement(By.xpath(
                 "//input[@name='crm_business_trip[arrivalCity]']")).getAttribute("value"),
-                "Поле 'Город выбытия' не содержит: 'Россия, Смоленск'");
+                "Поле 'Город прибытия' не содержит: 'Россия, Смоленск'");
 
 
         Assertions.assertEquals(getCurrentDate(), webDriver.findElement(By.xpath(

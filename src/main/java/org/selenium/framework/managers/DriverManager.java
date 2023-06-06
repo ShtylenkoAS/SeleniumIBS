@@ -10,15 +10,8 @@ import java.util.Properties;
 public class DriverManager {
 
     private static WebDriver webDriver;
-    private static DriverManager INSTANCE = null;
-    private static Properties properties = TestPropManager.getInstance().getProperties();
 
-    public static DriverManager getInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new DriverManager();
-        }
-        return INSTANCE;
-    }
+    private static Properties properties = TestPropManager.getInstance().getProperties();
 
 
     public static void initDriver() {
@@ -41,8 +34,11 @@ public class DriverManager {
         return webDriver;
     }
 
-    public static void quitDriver() {
-        webDriver.quit();
+    public static void closeDriver() {
+        if (webDriver != null) {
+            webDriver.close();
+        }
+        webDriver = null;
     }
 
 }

@@ -28,12 +28,12 @@ public class MainPage extends BasePage {
         costs.click();
         wait.until(visibilityOf(costMenu));
         businessTrips.click();
-//        loadingWait();        Если его включить, то будет думать на стадии нажатия кнопки "Создать командировку"
+//        loadingWait();        //Если его включить, то будет думать на стадии нажатия кнопки "Создать командировку"
     }
 
     public void createBusinessTrip() {
         createBusinessTripBtn.click();
-//        loadingWait();        Если включить его, то будет думать на стадии заполнения полей в разделе "Создать командировку"
+//        loadingWait();        //Если включить его, то будет думать на стадии заполнения полей в разделе "Создать командировку"
     }
 
     public void checkStartTitleText() {

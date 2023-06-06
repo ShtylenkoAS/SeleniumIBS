@@ -22,7 +22,7 @@ public class BasePage {
     private WebElement loadingWindow;
 
     protected static WebDriver webDriver = DriverManager.getDriver();
-    protected WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(15));
+    protected WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
 
     protected Actions actions = new Actions(webDriver);
 

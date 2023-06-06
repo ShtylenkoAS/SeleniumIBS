@@ -1,6 +1,6 @@
 package org.selenium.framework.steps;
 
-import io.qameta.allure.Step;
+import io.cucumber.java.en.And;
 import org.selenium.framework.pages.BusinessTripPage;
 
 public class BusinessTripSteps {
@@ -8,53 +8,44 @@ public class BusinessTripSteps {
     final BusinessTripPage tripPage = new BusinessTripPage();
 
 
-    @Step(value = "Выбираем подразделения")
-    public BusinessTripSteps getSubDivision() {
+    @And(value = "^Выбираем подразделения$")
+    public void getSubDivision() {
         tripPage.chooseSubDivision();
         tripPage.chooseOrganization();
-
-        return new BusinessTripSteps();
     }
 
-    @Step(value = "Прожимаем чекбокс 'Заказ билетов'")
-    public BusinessTripSteps pushCheckBox() {
+
+    @And(value = "^Прожимаем чекбокс 'Заказ билетов'$")
+    public void pushCheckBox() {
         tripPage.ticketsCheckBoxClick();
-
-        return new BusinessTripSteps();
     }
 
-    @Step(value = "Прописываем город выбытия - Страна: {0}, Город: {1}")
-    public BusinessTripSteps getDepartureCity(String country, String city) {
+
+    @And(value = "^Прописываем город выбытия - Страна: \"([^\"]*)\", Город: \"([^\"]*)\"$")
+    public void getDepartureCity(String country, String city) {
         tripPage.chooseDepartureCity(country, city);
-
-        return new BusinessTripSteps();
     }
 
-    @Step(value = "Прописываем город прибытия - Страна: {0}, Город: {1}")
-    public BusinessTripSteps getArrivalCity(String country, String city) {
+    @And(value = "^Прописываем город прибытия - Страна: \"([^\"]*)\", Город: \"([^\"]*)\"$")
+    public void getArrivalCity(String country, String city) {
         tripPage.chooseArrivalCity(country, city);
-
-        return new BusinessTripSteps();
     }
 
-    @Step(value = "Прописываем дату отправления")
-    public BusinessTripSteps getDepartureDate() {
+
+    @And(value = "^Прописываем дату отправления$")
+    public void getDepartureDate() {
         tripPage.chooseDepartureDate();
-
-        return new BusinessTripSteps();
     }
 
-    @Step(value = "Прописываем дату возвращения")
-    public BusinessTripSteps getReturnDate(int dayshift) {
+
+    @And(value = "^Прописываем дату возвращения через \"([^\"]*)\" дней$")
+    public void getReturnDate(int dayshift) {
         tripPage.chooseReturnDate(dayshift);
-
-        return new BusinessTripSteps();
     }
 
-    @Step(value = "Нажимаем кнопку 'Сохранить и закрыть'")
-    public BusinessTripSteps saveAndCloseTrip() {
-        tripPage.saveTrip();
 
-        return new BusinessTripSteps();
+    @And(value = "^Нажимаем кнопку 'Сохранить и закрыть'$")
+    public void saveAndCloseTrip() {
+        tripPage.saveTrip();
     }
 }

@@ -37,5 +37,5 @@ build/
 ### Mac OS ###
 .DS_Store
 
-### TestFile ###
-src/test/java/org/selenium/test/TestRunner.java
+### Allure driver ###
+.allure

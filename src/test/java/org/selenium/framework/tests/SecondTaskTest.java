@@ -1,15 +1,24 @@
 package org.selenium.framework.tests;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Link;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.selenium.framework.basetestclass.BaseTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.selenium.framework.extension.AllureExtension;
 import org.selenium.framework.extension.DriverExtension;
 
-@ExtendWith(DriverExtension.class)
+@DisplayName(value = "Сценарий прогона второго теста")
+@ExtendWith({DriverExtension.class, AllureExtension.class})
 public class SecondTaskTest extends BaseTest {
     @Test
-    @DisplayName("Тест практического задания №2")
+    @Severity(value = SeverityLevel.MINOR)
+    @Description(value = "Тест создания командировки")
+    @DisplayName("Тест создания командировки через Page-Object & Page-Factory")
+    @Link(value = "https://test.link.for.jira.test=not_working")
     public void test() {
 
         manger.getLoginSteps()
@@ -29,7 +38,7 @@ public class SecondTaskTest extends BaseTest {
 
 //        Для того чтобы успеть посмотреть как все накликалось
         try {
-            Thread.sleep(10000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

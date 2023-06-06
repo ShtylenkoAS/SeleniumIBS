@@ -18,6 +18,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
 
+@DisplayName(value = "Сценарий прогона первого теста")
 public class FirstTaskTest {
 
     private final String URL = "http://training.appline.ru/user/login";
@@ -53,7 +54,7 @@ public class FirstTaskTest {
     }
 
     @Test
-    @DisplayName("Тест практического задания №1")
+    @DisplayName("Тест создания командировки")
     public void test() {
 //        Step 1: Перейти на страницу http://training.appline.ru/user/login Пройти авторизацию
         wait.until(ExpectedConditions.visibilityOf(webDriver.findElement(By.xpath("//form[@id='login-form']"))));
@@ -207,7 +208,7 @@ public class FirstTaskTest {
 
 //        Для того чтобы успеть посмотреть как все накликалось
         try {
-            Thread.sleep(10000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

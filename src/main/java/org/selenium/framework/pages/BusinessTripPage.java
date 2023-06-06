@@ -114,7 +114,8 @@ public class BusinessTripPage extends BasePage {
                 () -> Assertions.assertNotNull(returnDateField.getAttribute("value"),
                         "Поле 'Планируемая дата возвращения' не заполнено"),
                 () -> Assertions.assertTrue(warningMsg.isDisplayed(),
-                        "сообщение: \"Список командируемых сотрудников не может быть пустым\" не появилось")
+                        "сообщение: \"Список командируемых сотрудников не может быть пустым\" не появилось"),
+                () -> Assertions.fail("Тестовый фэйл - проверка того что делается скрин")
         );
     }
 }

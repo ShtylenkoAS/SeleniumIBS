@@ -4,9 +4,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(value = Cucumber.class)
 @CucumberOptions(
-        features = "src.test.features",
-        glue = {"org.selenium.framework.steps", "org.selenium.framework.hooks"},
-        tags = "all"
+        plugin = {"pretty", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
+        glue = {"org/selenium/framework/steps", "org/selenium/framework/hooks"},
+        features = "src/test/features",
+        tags = "@all"
 )
 public class CucumberRunner {
 }

@@ -1,7 +1,6 @@
 package org.selenium.framework.hooks;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Scenario;
+import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -24,7 +23,10 @@ public class Hooks {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        DriverManager.closeDriver();
     }
 
+    @AfterAll
+    public static void afterAll() {
+        DriverManager.closeDriver();
+    }
 }

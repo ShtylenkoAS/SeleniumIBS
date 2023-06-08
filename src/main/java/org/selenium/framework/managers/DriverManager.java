@@ -20,7 +20,7 @@ public class DriverManager {
             webDriver = new ChromeDriver();
             webDriver.manage().window().maximize();
             webDriver.get(properties.getProperty("host.url"));
-            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         } else {
             Assertions.fail(("Тип браузера '" + properties.getProperty("type.browser") + "' не поддерживается для текущего теста"));
         }

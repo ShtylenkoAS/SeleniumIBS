@@ -84,7 +84,6 @@
             <version>${allure-cucumber7-jvm.version}</version>
         </dependency>
 
-
     </dependencies>
 
     <build>

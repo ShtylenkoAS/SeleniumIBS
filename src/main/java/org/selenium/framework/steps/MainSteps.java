@@ -7,15 +7,20 @@ public class MainSteps {
 
     final MainPage mainPage = new MainPage();
 
-    @And(value = "^Переходим на страничку 'Командировки'$")
-    public void getBusinessTrips() {
-        mainPage.goToBusinessTrips();
+    @And(value = "^Нажимаем на кнопку 'Каталог'$")
+    public void clickCatalogBtn() {
+        mainPage.clickCatalogBtn();
     }
 
 
-    @And(value = "^Нажимаем кнопку 'Создать командиовку'$")
-    public void createBusinessTrip() {
-        mainPage.createBusinessTrip();
+    @And(value = "^Выбираем категорию: \"([^\"]*)\"$")
+    public void getCategory(String name) {
+        mainPage.selectCategoryByText(name);
+    }
+
+    @And(value = "^Выбираем подкатегорию: \"([^\"]*)\"$")
+    public void getSubCategory(String name){
+        mainPage.selectSubCategoryByText(name);
     }
 
 }
